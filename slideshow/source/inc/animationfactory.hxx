@@ -30,6 +30,9 @@
 
 #include "shapemanager.hxx"
 
+namespace box2d::utils { class box2DWorld;
+                         typedef ::std::shared_ptr< box2DWorld > Box2DWorldSharedPtr; }
+
 /* Definition of AnimationFactory class */
 
 namespace slideshow
@@ -126,6 +129,14 @@ namespace slideshow
                                                                        const ShapeManagerSharedPtr&             rShapeManager,
                                                                        const ::basegfx::B2DVector&              rSlideSize,
                                                                        int                                      nFlags);
+
+            NumberAnimationSharedPtr createSimulatedAnimation( const box2d::utils::Box2DWorldSharedPtr pBox2DWorld,
+                                                               const double                      fDuration,
+                                                               sal_Int16                         nAdditive,
+                                                               const AnimatableShapeSharedPtr&   /*rShape*/,
+                                                               const ShapeManagerSharedPtr&      rShapeManager,
+                                                               const ::basegfx::B2DVector&       rSlideSize,
+                                                               int                               nFlags );
         }
     }
 }
